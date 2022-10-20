@@ -1,0 +1,102 @@
+### Introduction to MongoDB ###
+
+=> Mongodb is a document Databse designed for ease of development and scaling
+=> it is intuitive and easy to use NoSQL Database
+=> available as a community and enterprise edition
+=> However the community edition is itself is very powerful
+
+
+### Mongo VS MongoD ###
+
+=> Mongo is command line shell that connects to an instance of MongoD
+=> MongoD is the "Mongo Daemon" it's basically the host process for the Database
+
+### Mongo Db VS MySQL ###
+
+        MySQL           |      NoSQL                                 |
+________________________|____________________________________________|
+=> RDMS                 |    Not Only SQL (Something more than SQL)  | 
+=> Table(Relation)      |    Collection                              |
+=> Records (Rows)       |    Documents                               |
+=> Columns(Attributes)  |    Fields                                  | 
+=> Queries              |    Functions or Operations                 |
+
+### Commands ###
+
+=> show Databases 
+        show dbs 
+
+=> create a new database OR use a existing database 
+
+        use Database_Name
+
+=> check which database you are working upon 
+
+        db 
+
+=> delete a database
+
+        db.dropDatabase()
+
+=> create a Collection
+
+        db.createCollection('Collection_Name')
+
+=> display all collections in a database
+
+        show collections
+
+=> delete or drop a collections
+
+        db.Collection_Name.drop()
+
+=> inserting data into the collections 
+
+        db.Collection_Name.insertOne({key1:value1})
+
+        db.Collection_Name.insertMany([{key1:value1,key2:value2},{},{},........])
+
+=> Display all documents within a Collection
+
+        db.Collection_Name.find()
+	db.Collection_Name.findOne()
+	db.Collection_Name.findMany()
+        db.Collection_Name.find().pretty()
+
+=> find a particular document
+
+        db.Collection_Name.find( {key1 : value1} )
+        here key and value specifies the object that we have to search
+
+=> find documents using different conditions
+
+	db.Collection_Name.find().count()
+        db.Collection_Name.find().pretty().sort()
+        db.Collection_Name.find().pretty().sort({key : 1 or -1 })
+	db.Collection_Name.find({key1 : {$lt : "value"}})
+	db.Collection_Name.find({key1 : {$gt : "value"}})
+	db.Collection_Name.find({key1 : {$lte : "value"}})
+	db.Collection_Name.find({key1 : {$gte : "value"}})
+	db.Collection_Name.find({key1 : {$sum : "value"}})
+	db.Collection_Name.find({key1 : {$avg : "value"}})
+
+=> update a specific field of a document
+
+	db.Collection_Name.update( {key:value} , {$set{key:value}})
+	db.Collection_Name.update( {key:value} , {$set{key:value}} , {upsert:true}) 
+
+	Different Update Operators are
+	-> $currentDate
+	-> $inc
+	-> $min
+	-> $max
+	-> $mul
+	-> $rename
+	-> set
+	-> setOnInsert
+	-> unset	
+
+=> delete a document
+
+	db.Collection_Name.deleteOne({key:value})
+	db.Collection_Name.deleteMany({key:value})
